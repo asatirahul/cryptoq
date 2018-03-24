@@ -12,7 +12,7 @@ Wiki: https://github.com/asatirahul/cryptoq/wiki/Cryptoq-Introduction
 Tested with version 3.5 (2018.02.26)
 
 # Contributions
-If you find any issue or fixing one please raise an issue first. If you want to add new features then please raise a PR.
+If you find any bug or fixing one please raise an issue first. If you want to add new features then please raise a PR.
 
 # Contact
 rahul.asati04@gmail.com
