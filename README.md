@@ -8,6 +8,9 @@ Plese refer to wiki to get information on how to use it and to know more about l
 
 Wiki: https://github.com/asatirahul/cryptoq/wiki/Cryptoq-Introduction
 
+# Q Version
+Tested with version 3.5 (2018.02.26)
+
 # Contributions
 If you find any issue or fixing one please raise an issue first. If you want to add new features then please raise a PR.
 
