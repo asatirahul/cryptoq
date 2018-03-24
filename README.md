@@ -6,7 +6,7 @@ This library provides Q/KDB api for set of cryptographic functions and binary op
 # Details
 Plese refer to wiki to get information on how to use it and to know more about library.
 
-Wiki: https://github.com/asatirahul/cryptoq/wiki/Cryptoq-Introduction
+Wiki: https://github.com/asatirahul/cryptoq/wiki
 
 # Q Version
 Tested with version 3.5 (2018.02.26)
