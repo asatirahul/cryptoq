@@ -1,4 +1,4 @@
-\l src/cq_binary.q
+\l src/cryptoq_binary.q
 \l src/cryptoq.q
 
 .tst.desc["SHA256"]{
