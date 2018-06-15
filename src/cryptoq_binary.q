@@ -15,6 +15,11 @@ bin_to_hexstr:{htb?4 cut (mod[8-count[x] mod 8;8]#0b),x};
 / Binary To Hexadecimal
 bin_to_hex:{$[1=count d:"X"$/: 2 cut bin_to_hexstr x;first d;d]};
 
+bin_add:{[x;y] 
+  res:({s:z+y+x 1;$[s=2;(0,x 0;1);s=3;(1,x 0;1);(s,x 0;0)]})/[(();0);reverse x;reverse y];
+  "b"$$[0 = res 1;res 0;res[1],res 0]
+ };
+
 / Integer to Binary
 int_to_bin:{0b vs x};
 
@@ -31,10 +36,10 @@ bin_modulo:{-32#0b vs sum 2 sv/:(x;y)};
 bin_modulo_list:{-32#0b vs sum 2 sv/:x};
 
 / 2^64 modulo binary addition
-bin_modulo_64:{-64#0b vs sum 2 sv/:(x;y)};
+bin_modulo_64:{-64#bin_add[x;y]};
 
 /2^64 modulo biary addition for list
-bin_modulo_64_list:{-64#0b vs sum 2 sv/:x};
+bin_modulo_64_list:{-64#({-64#bin_add[x;y]}/)x};
 
 / checks if input is of type binary or hexadecimal
 / @param Data (Bin|Hex) binary or hex input

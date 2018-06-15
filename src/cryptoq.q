@@ -60,6 +60,9 @@ hmac_md5:{[Key;Msg] hmac[Key;Msg;md5;512]};
 / HMAC SHA256
 hmac_sha256:{[Key;Msg] hmac[Key;Msg;sha256;512]};
 
+/ HMAC SHA512
+hmac_sha512:{[Key;Msg] hmac[Key;Msg;sha512;1024]};
+
 / converts input msg to String
 / @param Msg (Hex|Char|String)
 format:{[Msg]
