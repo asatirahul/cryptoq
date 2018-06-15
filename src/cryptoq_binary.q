@@ -18,11 +18,23 @@ bin_to_hex:{$[1=count d:"X"$/: 2 cut bin_to_hexstr x;first d;d]};
 / Integer to Binary
 int_to_bin:{0b vs x};
 
+/ Integer to Binary. Get number of bits as mentioned in input.
+int_to_bin_length:{b:0b vs x; $[y<=count b;neg[y]#b;#[y-count b;0b],b]};
+
 / 2^32 modulo of binaries using int  addition
 int_modulo:{m:4294967296; s:sum[2 sv/:(x;y)]; if[s>=m;s:s mod m];-32#0b vs s};
 
 / 2^32 modulo binary addition
 bin_modulo:{-32#0b vs sum 2 sv/:(x;y)};
+
+/2^32 modulo biary addition for list
+bin_modulo_list:{-32#0b vs sum 2 sv/:x};
+
+/ 2^64 modulo binary addition
+bin_modulo_64:{-64#0b vs sum 2 sv/:(x;y)};
+
+/2^64 modulo biary addition for list
+bin_modulo_64_list:{-64#0b vs sum 2 sv/:x};
 
 / checks if input is of type binary or hexadecimal
 / @param Data (Bin|Hex) binary or hex input
