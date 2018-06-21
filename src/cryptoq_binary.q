@@ -15,10 +15,10 @@ bin_to_hexstr:{htb?4 cut (mod[8-count[x] mod 8;8]#0b),x};
 / Binary To Hexadecimal
 bin_to_hex:{$[1=count d:"X"$/: 2 cut bin_to_hexstr x;first d;d]};
 
-bin_add:{[x;y] 
-  res:({s:z+y+x 1;$[s=2;(0,x 0;1);s=3;(1,x 0;1);(s,x 0;0)]})/[(();0);reverse x;reverse y];
-  "b"$$[0 = res 1;res 0;res[1],res 0]
- };
+/ Binary addition of 2 numbers
+/ Should be of same length
+bin_add:{[x;y] r:fa/[(();0b)] . reverse@'normalize_length[;max count@'(x;y)]@'(x;y);$[(0=r[1])&count[x]<=count r 0;r 0;r[1],r 0] };
+fa:{s:(r:y<>z)<>x 1;c:(y&z)|r&x 1;(s,x 0;c)}; / full adder
 
 / Integer to Binary
 int_to_bin:{0b vs x};
@@ -36,10 +36,10 @@ bin_modulo:{-32#0b vs sum 2 sv/:(x;y)};
 bin_modulo_list:{-32#0b vs sum 2 sv/:x};
 
 / 2^64 modulo binary addition
-bin_modulo_64:{-64#bin_add[x;y]};
+bin_modulo_64:{$[64<count r:bin_add[x;y];-64#r;r]};
 
 /2^64 modulo biary addition for list
-bin_modulo_64_list:{-64#({-64#bin_add[x;y]}/)x};
+bin_modulo_64_list:{$[64<count r:(bin_add/)x;-64#r;r]};
 
 / checks if input is of type binary or hexadecimal
 / @param Data (Bin|Hex) binary or hex input
@@ -76,4 +76,5 @@ rshift:{[Bin;n] @[rrotate[Bin;n];til min n,count Bin;:;(0b;0x00)4h= abs type Bin
 / @return (List)
 maybe_enlist_data:{[Data] (Data;enlist Data)0>type Data};
 
+normalize_length:{[l;n]$[n=c:count l;l;c>n;#[neg n;l];#[n-c;0b],l]};
 \d .
