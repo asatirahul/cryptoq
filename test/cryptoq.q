@@ -31,4 +31,10 @@
     .cryptoq.hmac_sha256["key";"Generate sha256"] mustmatch 0x07c476de05d9fbf91b4831b5d9373aa576d614679052c4e84daf5e72a8ee47d6;
     .cryptoq.hmac_sha256["key";"$tpest-(t%["] mustmatch 0x029874f50b8d22e5e06b3f4c01b4021083fd3148e5dcd7a30e8742344fe5b5bc;
     };
+  should["Generate HMAC-SHA512"]{
+    res:0x077c35bc6dedaa99113fcfc580e08ebc3d7e12852ef813d7a88172d9278b6cfc791e5595915109efd8816631e0ff8004f37de2da260ff63e180654b0b2b1eed0;
+    .cryptoq.hmac_sha512["key";"Generate sha512"] mustmatch res;
+    res:0xaf5fa09d9c1049b23580c443466f8d2989a8cceecfdbc6802e62ed352be48d82239e61de9e04da1db4be2832b9fec492ac10c278c91a5e2e60a146cf0b914dcc;
+    .cryptoq.hmac_sha512["key";"$tpest-(t%["] mustmatch res;
+    };
   };
